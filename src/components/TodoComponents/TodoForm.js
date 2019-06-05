@@ -26,6 +26,7 @@ class TodoForm extends React.Component {
           value={this.state.task}
         />
         <button type='submit'>Add Todo</button>
+        <button type='button'>Clear Todo</button>
       </form>
     );
   }

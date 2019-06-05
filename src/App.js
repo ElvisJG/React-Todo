@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+// Initial State, has the initial tasks
 const initialState = {
   tasks: [
     {
@@ -52,7 +53,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList tasks={this.state.tasks} />
-        <TodoForm addTask={this.addTask} />
+        <TodoForm addTask={this.addTask} clearTask={this.clearTask} />
       </div>
     );
   }
