@@ -1,4 +1,6 @@
 import React from 'react';
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   // "C" declare your 'CLASS'
@@ -30,17 +32,15 @@ class App extends React.Component {
   }
 
   addTask = task => {
-    let addedTask = {
+    let newTask = {
       task,
-      id: '',
+      id: Date.now(),
       completed: false
     };
 
-    //   this.setState({
-    //    hogwartsStudents: [...this.state.hogwartsStudents, newStudent]
-    //   });
+    // Very similar to the Harry Potter app
     this.setState({
-      tasks: [...this.state.tasks, addedTask]
+      tasks: [...this.state.tasks, newTask]
     });
   };
 
@@ -49,6 +49,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <TodoList tasks={this.state.tasks} />
+        <TodoForm addTask={this.addTask} />
       </div>
     );
   }
