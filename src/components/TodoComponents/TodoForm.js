@@ -11,9 +11,9 @@ class TodoForm extends React.Component {
     });
   };
   addTask = event => {
-    this.setState({ task: '' });
     event.preventDefault();
     this.props.addTask(this.state.task);
+    this.setState({ task: '' });
   };
   render() {
     return (
@@ -23,6 +23,7 @@ class TodoForm extends React.Component {
           type='text'
           name='task'
           placeholder='...todo'
+          value={this.state.task}
         />
         <button type='submit'>Add Todo</button>
       </form>

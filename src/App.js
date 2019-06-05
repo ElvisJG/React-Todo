@@ -2,6 +2,26 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+const initialState = {
+  tasks: [
+    {
+      task: 'Learn React',
+      id: 1528817077286,
+      completed: false
+    },
+    {
+      task: 'Improve React Skills',
+      id: 1528817084358,
+      completed: false
+    },
+    {
+      task: 'Try not to feel so lost 😅',
+      id: 1528817084366,
+      completed: false
+    }
+  ]
+};
+
 class App extends React.Component {
   // "C" declare your 'CLASS'
   // you will need a place to store your state in this component.
@@ -10,25 +30,7 @@ class App extends React.Component {
   constructor() {
     // "C" build out your 'CONSTRUCTOR'
     super();
-    this.state = {
-      tasks: [
-        {
-          task: 'Learn React',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Improve React Skills',
-          id: 1528817084358,
-          completed: false
-        },
-        {
-          task: 'Try not to feel so lost 😅',
-          id: 1528817084366,
-          completed: false
-        }
-      ]
-    };
+    this.state = initialState;
   }
 
   addTask = task => {
