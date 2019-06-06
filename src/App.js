@@ -48,7 +48,7 @@ class App extends React.Component {
   };
 
   toggleTask = id => {
-    const newToggle = this.state.initialState.map(item => {
+    const newToggle = this.state.tasks.map(item => {
       if (item.id === id) {
         const newObj = {
           ...item,
@@ -59,7 +59,7 @@ class App extends React.Component {
         return item;
       }
     });
-    this.setState({ initialState: newToggle });
+    this.setState({ tasks: newToggle });
   };
 
   render() {
