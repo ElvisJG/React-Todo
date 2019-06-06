@@ -35,7 +35,7 @@ class App extends React.Component {
   }
 
   addTask = task => {
-    let newTask = {
+    const newTask = {
       task,
       id: Date.now(),
       completed: false
@@ -47,12 +47,27 @@ class App extends React.Component {
     });
   };
 
+  toggleTask = id => {
+    const newToggle = this.state.initialState.map(item => {
+      if (item.id === id) {
+        const newObj = {
+          ...item,
+          completed: !item.completed
+        };
+        return newObj;
+      } else {
+        return item;
+      }
+    });
+    this.setState({ initialState: newToggle });
+  };
+
   render() {
     // "R" don't forget to call 'RENDER'
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList tasks={this.state.tasks} />
+        <TodoList tasks={this.state.tasks} toggleTask={this.toggleTask} />
         <TodoForm addTask={this.addTask} clearTask={this.clearTask} />
       </div>
     );
