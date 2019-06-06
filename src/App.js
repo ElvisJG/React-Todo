@@ -62,6 +62,13 @@ class App extends React.Component {
     this.setState({ tasks: newToggle });
   };
 
+  clearTask = () => {
+    const completedTasks = this.state.tasks.filter(tasking =>
+      tasking.completed ? false : true
+    );
+    this.setState({ tasks: completedTasks });
+  };
+
   render() {
     // "R" don't forget to call 'RENDER'
     return (

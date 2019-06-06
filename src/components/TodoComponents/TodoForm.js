@@ -1,9 +1,12 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 class TodoForm extends React.Component {
   state = {
     task: ''
   };
+
+  static propTypes = { clearTask: propTypes.func.isRequired };
 
   changeHandler = event => {
     this.setState({
@@ -26,7 +29,9 @@ class TodoForm extends React.Component {
           value={this.state.task}
         />
         <button type='submit'>Add Todo</button>
-        <button type='button'>Clear Todo</button>
+        <button type='button' onClick={this.props.clearTask}>
+          Clear Todo
+        </button>
       </form>
     );
   }
