@@ -34,6 +34,7 @@ class App extends React.Component {
     this.state = initialState;
   }
 
+  // function, adds a new task using tasks scheme and given field as task
   addTask = task => {
     const newTask = {
       task,
@@ -47,6 +48,7 @@ class App extends React.Component {
     });
   };
 
+  // function, maps items by their ID's, if they're clicked their completed status changes from true -> false and vice versa
   toggleTask = id => {
     const newToggle = this.state.tasks.map(item => {
       if (item.id === id) {
@@ -62,6 +64,7 @@ class App extends React.Component {
     this.setState({ tasks: newToggle });
   };
 
+  // function, filters state.tasks looking for incomplete tasks to add to the new array, which is set to state
   clearTask = () => {
     const completedTasks = this.state.tasks.filter(tasking =>
       tasking.completed ? false : true
@@ -69,6 +72,7 @@ class App extends React.Component {
     this.setState({ tasks: completedTasks });
   };
 
+  // Local storage
   componentDidMount() {
     this.hydrateStateWithLocalStorage();
 

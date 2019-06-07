@@ -3,6 +3,7 @@
 import React from 'react';
 import Todo from './Todo';
 
+// Function for the TodoList.js component, using a spread operator recieves a task, an ID, and the toggleTask function
 function TodoList(props) {
   return (
     <div>
